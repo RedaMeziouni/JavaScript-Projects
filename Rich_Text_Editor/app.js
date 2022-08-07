@@ -49,3 +49,24 @@ const initializer = () => {
     //default size
     fontSizeRef.value = 3;
   };
+
+// Text modification
+const modifyText = (command, defaultUi, value) => {
+    // !! execCommand executes command only on selected text
+    document.execCommand(command, defaultUi, value);
+};
+
+//For basic operations which don't need from us to pass an argument
+optionsButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      modifyText(button.id, false, null);
+    });
+});
+
+//options that require value parameter (e.g colors, fonts)
+advancedOptionButton.forEach((button) => {
+    button.addEventListener("change", () => {
+      modifyText(button.id, false, button.value);
+    });
+});
+
