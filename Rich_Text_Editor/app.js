@@ -109,3 +109,12 @@ const highlighter = (className, needsRemoval) => {
     });
 };
 
+const highlighterRemover = (className) => {
+    className.forEach((button) => {
+      button.classList.remove("active");
+    });
+};
+  
+// Initialize all the options on loading
+window.onload = initializer();
+
