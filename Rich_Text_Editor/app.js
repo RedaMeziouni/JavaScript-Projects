@@ -70,3 +70,14 @@ advancedOptionButton.forEach((button) => {
     });
 });
 
+//link option
+linkButton.addEventListener("click", () => {
+    let userLink = prompt("Enter a URL");
+    //if link has http then pass directly else add https
+    if (/http/i.test(userLink)) {
+      modifyText(linkButton.id, false, userLink);
+    } else {
+        userLink = "http://" + userLink;
+        modifyText(linkButton.id, false, userLink);
+    }
+});
