@@ -11,8 +11,8 @@ A QR code is a type of matrix barcode invented in 1994 by the Japanese automotiv
 
 ## Preview 
 
-<p align="center"><img src="./img/Preview1"/></p>
-<p align="center"><img src="./img/Preview2"/></p>
+<p align="center"><img src="./img/Preview1.png"/></p>
+<p align="center"><img src="./img/Preview2.png"/></p>
 
 ## Useful links
 ```
