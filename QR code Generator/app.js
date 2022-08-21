@@ -19,6 +19,11 @@ const onGenerateSubmit = (e) => {
         setTimeout(() => {
             hideSpinner();
 
+            // output the button
+            setTimeout(() => {
+                const saveUrl = qr.querySelector('img').src;
+                createSaveBtn(saveUrl);
+            }, 50);
             generateQrCode(url, size);
         }, 1000)
     }
@@ -48,6 +53,23 @@ const hideSpinner = () => {
 // Clearing the UI function
 const clearUI = () => {
     qr.innerHTML = '';
+
+    // Clear the buttons
+    const saveLink = document.getElementById('save-link');
+    if(saveLink) {
+        saveLink.remove(); //remove it from the DOM completely
+    }
+}
+
+// Create save button using JS
+const createSaveBtn = (saveUrl) => {
+    const link = document.createElement('a');
+    link.id = 'save-link';
+    link.classList = 'bg-green-500 hover:bg-red-700 text-white font-bold py-2 rounded w-1/3 m-auto my-5'
+    link.href = saveUrl;
+    link.download = 'qrcode';
+    link.innerHTML = 'Save Image';
+    document.getElementById('generated').appendChild(link);
 }
 
 hideSpinner();
