@@ -1,7 +1,7 @@
 const form = document.getElementById("generate-form");
 const qr = document.getElementById("qrcode");
 
-// Generate submit function
+// Submit button function
 const onGenerateSubmit = (e) => {
     e.preventDefault();
 
@@ -12,18 +12,35 @@ const onGenerateSubmit = (e) => {
         alert('Please enter a URL');
     } else {
         showSpinner();
+
+        setTimeout(() => {
+            hideSpinner();
+
+            generateQrCode(url, size);
+        }, 1000)
     }
+    // console.log(url, size);
+}
+
+// Generate QR Code function
+const generateQrCode = (url, size) => {
+    const qrcode = new QRCode('qrcode', {
+        text: url,
+        width: size,
+        height: size
+    })
 }
 
 // Show spinner
-const showSpinner= () => {
+const showSpinner = () => {
     document.getElementById('spinner').style.display = 'block';
 }
 
 // Hide spinner
-const hideSpinner= () => {
-    document.getElementById('spinner').style.display = 'none';
-}
+const hideSpinner = () => {
+    const spinner = document.getElementById('spinner');
+    spinner.style.display = 'none';
+};
 
 hideSpinner();
 
