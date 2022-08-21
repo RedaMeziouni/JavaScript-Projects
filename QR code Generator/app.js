@@ -5,6 +5,9 @@ const qr = document.getElementById("qrcode");
 const onGenerateSubmit = (e) => {
     e.preventDefault();
 
+    // Befor generating, we need to clear the UI 
+    clearUI();
+
     const url = document.getElementById('url').value;
     const size = document.getElementById('size').value;
 
@@ -41,6 +44,11 @@ const hideSpinner = () => {
     const spinner = document.getElementById('spinner');
     spinner.style.display = 'none';
 };
+
+// Clearing the UI function
+const clearUI = () => {
+    qr.innerHTML = '';
+}
 
 hideSpinner();
 
