@@ -1,0 +1,27 @@
+/* Import Roboto Flex font */
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,300&display=swap');
+
+
+.timerBtn {
+    width: 80px;
+    height: 30px;
+    border: 3px solid;
+    border-radius: 12px;
+    background-color: #7f7373;
+    color: #fff;
+    cursor: pointer;
+    font-family: 'Roboto Flex', sans-serif;
+}
+
+#timeDisplay {
+    font-size: 75px;
+    color: rgb(34, 125, 122);
+    font-family: 'Roboto Flex', sans-serif;
+}
+
+#timeContainer {
+    text-align: center;
+    border: 3px solid;
+    border-radius: 25px;
+    background-color: rgb(214, 211, 178);
+}
