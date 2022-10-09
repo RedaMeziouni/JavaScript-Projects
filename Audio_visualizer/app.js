@@ -21,7 +21,17 @@ window.addEventListener('load', function() {
             this.height = micInput;
         }
         draw(context, volume) {
+            context.fillStyle = this.color;
             context.fillRect(this.x, this.y, this.width, this.height);
         }
     }
+    const bar1 = new Bar(200, 200, 100, 300, '#ff33f7', 1);
+    
+    // Animation function
+    function animate() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        bar1.draw(ctx, 1);
+        requestAnimationFrame(animate);
+    };
+    animate();
 });
