@@ -1,0 +1,27 @@
+body {
+    margin: 0;
+    background: #f6f9fc; 
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 1fr 100px 1fr;
+    align-items: center;
+    height: 100vh;
+    box-sizing: border-box;
+    padding: 20px;
+    gap: 20px;
+}
+
+.large-area {
+    font-family: monospace;
+    height: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+    color: gray;
+    background: #444;
+    border: none;
+    border-radius: 10px;
+    outline: none;
+    resize: none;
+}
