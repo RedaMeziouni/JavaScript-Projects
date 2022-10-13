@@ -24,4 +24,12 @@ body {
     border-radius: 10px;
     outline: none;
     resize: none;
+    transition: background 0.25s, color 0.25s;
+}
+.large-area:hover,
+.large-area:focus {
+    background: #4a4a4a;
+}
+.large-area:focus {
+    background: #bebaba;
 }
