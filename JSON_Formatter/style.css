@@ -33,3 +33,20 @@ body {
 .large-area:focus {
     background: #bebaba;
 }
+
+.controls__buttons {
+    padding: 8px 14px;
+    width: 100%;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    background: #4a4a4a;
+    color: white;
+    font-weight: bold;
+}
+
+.controls__buttons:active {
+    background: #797474;
+}
