@@ -5,7 +5,7 @@ const ctx = gameBoard.getContext("2d");
 // Score Text
 const scoreText = document.querySelector("#scoreText");
 // Reset Button
-const resetBtn = document.querySelector("resetBtn");
+const resetBtn = document.querySelector("#resetBtn");
 // Set up the Snake and the Apple
 const gameWidth = gameBoard.width;
 const gameHeight = gameBoard.height;
@@ -35,12 +35,25 @@ window.addEventListener("keydown", changeDirection);
 resetBtn.addEventListener("click", resetGame);
 
 gameStart();
+createFood();
+drawFood();
 
 function gameStart() {};
 function nextTick() {};
 function clearBoard() {};
-function createFood() {};
-function drawFood() {};
+function createFood() {
+    function randomFood(min, max) {
+        const randNum = Math.round((Math.random() * (max - min) + min) / unitSize) * unitSize;
+        return randNum;
+    }
+    foodX = randomFood(0, gameWidth, unitSize);
+    foodY = randomFood(0, gameWidth, unitSize);
+
+};
+function drawFood() {
+    ctx.fillStyle = foodColor;
+    ctx.fillRect(foodX, foodY, unitSize, unitSize);
+};
 function moveSnake() {};
 function drawSnake() {};
 function changeDirection() {};
