@@ -3,17 +3,31 @@
     padding: 0;
     box-sizing: border-box;
 }
-
 body {
     background: black;
-    overflow: hidden;
+    overflow:hidden;
 }
-
-#moth {
+#snail {
     position: absolute;
-    top: 50%;
+    top:50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 800px;
+    width: 600px;
     z-index: -1;
+}
+#snail path {
+    stroke-dasharray: 1520;
+    stroke-dashoffset: 1520;
+    animation: animatePath 5s ease-in-out infinite;
+}
+@keyframes animatePath {
+    0% {
+        stroke-dashoffset: 1000;
+    }
+    50% {
+        stroke-dashoffset: 0;
+    }
+    100% {
+        stroke-dashoffset: 1000;
+    }
 }
