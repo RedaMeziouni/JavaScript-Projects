@@ -2,11 +2,12 @@
 
 Animated audio visualizer using html, css and javascript
 
-## preview 
+## Preview 
 
 https://user-images.githubusercontent.com/64977475/195836289-8b6aecbd-1d5a-4fe5-a34c-000180050724.mp4
 
 ## Links
+
 JS Audio
 ```
 https://developer.mozilla.org/en-US/docs/Web/API/HTMLAudioElement/Audio
