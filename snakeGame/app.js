@@ -35,12 +35,35 @@ window.addEventListener("keydown", changeDirection);
 resetBtn.addEventListener("click", resetGame);
 
 gameStart();
-createFood();
-drawFood();
+// createFood();
+// drawFood();
 
-function gameStart() {};
-function nextTick() {};
-function clearBoard() {};
+function gameStart() {
+    running = true;
+    scoreText.textContent = score;
+    createFood();
+    drawFood();
+    nextTick();
+};
+function nextTick() {
+    if(running){
+        setTimeout(()=>{
+            clearBoard();
+            drawFood();
+            moveSnake();
+            drawSnake();
+            checkGameOver();
+            nextTick();
+        }, 75);
+    }
+    else{
+        displayGameOver();
+    }
+};
+function clearBoard() {
+    CSSTransition.fillStyle = boardBackground;
+    ctx.fillRect(0, 0, gameWidth, gameHeight);
+};
 function createFood() {
     function randomFood(min, max) {
         const randNum = Math.round((Math.random() * (max - min) + min) / unitSize) * unitSize;
