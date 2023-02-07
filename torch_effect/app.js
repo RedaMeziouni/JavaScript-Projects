@@ -1,6 +1,6 @@
 let CANVAS, CTX, VIDEO;
 
-const COLOR = [8, 73, 175];
+const COLOR = [13, 25, 93];
 
 const THRESHOLD = 50;
 
