@@ -1,8 +1,8 @@
 let CANVAS, CTX, VIDEO;
 
-const COLOR = [13, 25, 93];
+const COLOR = [8, 73, 175];
 
-const THRESHOLD = 60;
+const THRESHOLD = 50;
 
 function main() {
   CANVAS = document.getElementById("myCanvas");
@@ -26,31 +26,18 @@ function animateTorchEffect() {
   CANVAS.height = VIDEO.videoHeight;
   CTX.drawImage(VIDEO, 0, 0, CANVAS.width, CANVAS.height);
 
-  //   Store Locations
   const locs = [];
-
   const { data } = CTX.getImageData(0, 0, CANVAS.width, CANVAS.height);
-  //   console.log(`rgb(${data[0]}, ${data[1]}), ${data[2]}`); //To get the blue color
   for (let i = 0; i < data.length; i += 4) {
-    const r = data[i]; //red
-    const g = data[i + 1]; //green
-    const b = data[i + 2]; //blue
-    // const a = data[i + 3]; //alpha
-
+    const r = data[i];
+    const g = data[i + 1];
+    const b = data[i + 2];
     if (distance([r, g, b], COLOR) < THRESHOLD) {
       const x = (i / 4) % CANVAS.width;
       const y = Math.floor(i / 4 / CANVAS.width);
       locs.push({ x, y });
     }
   }
-  //   console.log(locs.length);
-  //   Determine if the Application Detect the blue color pixels
-  //   for (let i = 0; i < locs.length; i++) {
-  //     CTX.fillStyle = "green";
-  //     CTX.beginPath();
-  //     CTX.arc(locs[i].x, locs[i].y, 1, 0, Math.PI * 2);
-  //     CTX.fill();
-  //   }
 
   if (locs.length > 0) {
     const center = { x: 0, y: 0 };
@@ -61,8 +48,29 @@ function animateTorchEffect() {
     center.x /= locs.length;
     center.y /= locs.length;
 
-    CTX.fillStyle = "green";
-    CTX.arc(center.x, center.y, 50, 0, Math.PI * 2);
+    let rad = Math.sqrt(
+      CANVAS.width * CANVAS.width + CANVAS.height * CANVAS.height
+    );
+    rad += Math.random() * 0.1 * rad;
+
+    const grd = CTX.createRadialGradient(
+      center.x,
+      center.y,
+      rad * 0.05,
+      center.x,
+      center.y,
+      rad * 0.2
+    );
+    grd.addColorStop(0, "rgba(0,0,0,0)");
+    grd.addColorStop(1, "rgba(0,0,0,0.8)");
+
+    CTX.fillStyle = grd;
+    CTX.arc(center.x, center.y, rad, 0, Math.PI * 2);
+    CTX.fill();
+  } else {
+    // we don't have blue pixels
+    CTX.fillStyle = "rgba(0,0,0,0.8)";
+    CTX.rect(0, 0, CANVAS.width, CANVAS.height);
     CTX.fill();
   }
 
