@@ -53,16 +53,20 @@ function animateTorchEffect() {
   //   }
 
   if (locs.length > 0) {
-    const centre = { x: 0, y: 0 };
-    for (let i = 0; locs.length; i++) {
-      centre.x += locs[i].x;
-      centre.y += locs[i].y;
+    const center = { x: 0, y: 0 };
+    for (let i = 0; i < locs.length; i++) {
+      center.x += locs[i].x;
+      center.y += locs[i].y;
     }
-    centre.x /= locs.length;
-    centre.y /= locs.length;
+    center.x /= locs.length;
+    center.y /= locs.length;
+
+    CTX.fillStyle = "green";
+    CTX.arc(center.x, center.y, 50, 0, Math.PI * 2);
+    CTX.fill();
   }
 
-  //   requestAnimationFrame(animateTorchEffect);
+  requestAnimationFrame(animateTorchEffect);
 }
 
 function distance(v1, v2) {
