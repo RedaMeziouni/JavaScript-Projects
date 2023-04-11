@@ -1,0 +1,12 @@
+{
+  "name": "functional-testing",
+  "version": "1.0.0",
+  "description": "Jest testing",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
